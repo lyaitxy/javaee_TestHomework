@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<!--利用表单来写页面结构-->
+    <form action="index.jsp" method="get">
+        <label for="name">姓名：</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password"> <br>
+        性别：<input type="radio" name="sex" value="male">男
+             <input type="radio" name="sex" value="female">女 <br>
+        爱好：<input type="checkbox" name="hobby" value="唱">唱
+        <input type="checkbox" name="hobby" value="跳">跳
+        <input type="checkbox" name="hobby" value="rap">rap
+        <input type="checkbox" name="hobby" value="篮球">篮球 <br>
+        类型：
+        <select name="type">
+            <option value="ikun">ikun</option>
+            <option value="xiaoheizi">xiaoheizi</option>
+        </select> <br>
+        自我介绍:<br><textarea name="self-introduction" cols="30" rows="10"></textarea> <br>
+        <input type="reset" value="重设">
+        <input type="submit" value="登录">
+    </form>
+
+<script>
+    function validateForm() {
+        let name = document.querySelector('#name').value;
+        let passwd = document.querySelector('#password').value;
+        if (name == null || name == '') {
+            alert("请填写用户名");
+            return false;
+        }
+        if (passwd == null || passwd == '') {
+            alert("请填写密码");
+            return false;
+        }
+    }
+
+</script>
+
+
+
+
+
+<!--利用table来进行页面结构注册-->
+<!--<table border="2">
+    <form action="" method="get">
+    <tr>
+        <td>姓名：</td><td><input type="text"></td>
+    </tr>
+    <tr>
+        <td>密码：</td><td><input type="password" name="password"></td>
+    </tr>
+    <tr>
+        <td>性别：</td><td><input type="radio" name="sex" value="male">男 <input type="radio" name="sex" value="female">女</td>
+    </tr>
+    <tr>
+        <td>爱好：</td>
+        <td>
+            <input type="checkbox" name="hobby" value="唱">唱
+            <input type="checkbox" name="hobby" value="跳">跳
+            <input type="checkbox" name="hobby" value="rap">rap
+            <input type="checkbox" name="hobby" value="篮球">篮球
+        </td>
+    </tr>
+    <tr>
+        <td>自我介绍：</td><td><textarea name="自我介绍" cols="30" rows="10"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="reset" value="重设"></td>
+        <td><input type="submit" value="登录"></td>
+    </tr>
+    </form>
+</table>
+-->
+</body>
+</html>
+
