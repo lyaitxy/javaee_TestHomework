@@ -28,10 +28,8 @@ public class TreatZhuCe extends HttpServlet {
 
             req.setAttribute("fail", "用户名或者密码为空");
             rd.forward(req, resp);
-        } else
-        //判断密码是否一致
-        if (!password.equals(isPassword)) {
-
+        } else if (!password.equals(isPassword)) {
+            //判断密码是否一致
             req.setAttribute("fail", "密码与确认密码不一致");
             rd.forward(req, resp);
         } else {

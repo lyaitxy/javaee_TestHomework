@@ -25,15 +25,13 @@ public class TreatDengLu extends HttpServlet {
         RequestDispatcher rd = req.getRequestDispatcher(url);
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
+        UserBean user = (UserBean) application.getAttribute("user");
         //判断用户名或者密码是否为空，如是就跳转给处理页面
         if (userName.equals("") || password.equals("")) {
             req.setAttribute("fail", "用户名或者密码为空");
             rd.forward(req, resp);
-        }
-
-        //判断用户是否已经注册
-        UserBean user = (UserBean) application.getAttribute("user");
-        if (userName.equals(user.getName()) && password.equals(user.getPassword())) {
+        } else if (userName.equals(user.getName()) && password.equals(user.getPassword())) {
+            ////判断用户是否已经注册，如是就跳转给处理页面
             session.setAttribute("user", user);
             rd.forward(req, resp);
         } else {
