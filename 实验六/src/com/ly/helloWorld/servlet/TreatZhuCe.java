@@ -28,20 +28,21 @@ public class TreatZhuCe extends HttpServlet {
 
             req.setAttribute("fail", "用户名或者密码为空");
             rd.forward(req, resp);
-        }
+        } else
         //判断密码是否一致
         if (!password.equals(isPassword)) {
 
             req.setAttribute("fail", "密码与确认密码不一致");
             rd.forward(req, resp);
+        } else {
+            //将注册信息存入application对象
+            UserBean user = new UserBean();
+            user.setName(userName);
+            user.setPassword(password);
+            ServletContext application = getServletContext();
+            application.setAttribute("user", user);
+            rd.forward(req, resp);
         }
-        //将注册信息存入application对象
-        UserBean user = new UserBean();
-        user.setName(userName);
-        user.setPassword(password);
-        ServletContext application = getServletContext();
-        application.setAttribute("user", user);
-        rd.forward(req, resp);
     }
 
     @Override
