@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 @WebServlet("/test06/dengLuServlet")
 public class TreatDengLu extends HttpServlet {
@@ -31,7 +30,7 @@ public class TreatDengLu extends HttpServlet {
             req.setAttribute("fail", "用户名或者密码为空");
             rd.forward(req, resp);
         } else if (userName.equals(user.getName()) && password.equals(user.getPassword())) {
-            ////判断用户是否已经注册，如是就跳转给处理页面
+            //判断用户是否已经注册
             session.setAttribute("user", user);
             rd.forward(req, resp);
         } else {

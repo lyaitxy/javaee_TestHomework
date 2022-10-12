@@ -13,23 +13,27 @@
 </head>
 <body>
     <%
+        //获取表单数据
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String isPassword = request.getParameter("isPassword");
         String fail1 = "用户名或者密码为空";
         String fail2 = "密码和确认密码不一致";
+        //判断用户名和密码是否为空
         if (userName.equals("") || password.equals("")) {
     %>
         <jsp:forward page="zhuCeFail.jsp">
             <jsp:param name="fail1" value="<%=fail1%>"/>
         </jsp:forward>
     <%
+            //判断密码和确认密码是否一致
         } else if (!password.equals(isPassword)) {
     %>
         <jsp:forward page="zhuCeFail.jsp">
             <jsp:param name="fail2" value="<%=fail2%>"/>
         </jsp:forward>
     <%
+            //将数据存入application
         } else {
             UserBean user = new UserBean();
             user.setName(userName);

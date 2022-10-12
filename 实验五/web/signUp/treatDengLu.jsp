@@ -13,16 +13,19 @@
 </head>
 <body>
     <%
+        //获取表单数据
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String fail1 = "用户名或者密码为空";
         String fail2 = "用户名或者密码错误";
+        //判断用户名和密码是否为空
         if (userName.equals("") || password.equals("")) {
     %>
         <jsp:forward page="dengLuFail.jsp">
             <jsp:param name="fail1" value="<%=fail1%>"/>
         </jsp:forward>
     <%
+        //判断用户是否已经注册
     } else {
         UserBean user = (UserBean) application.getAttribute("user");
         if (userName.equals(String.valueOf(user.getName())) && password.equals(String.valueOf(user.getPassword()))) {
@@ -31,6 +34,7 @@
             <jsp:param name="userName" value="<%=userName%>"/>
         </jsp:forward>
     <%
+            //将数据存进session中
         session.setAttribute("user", user);
     } else {
     %>
