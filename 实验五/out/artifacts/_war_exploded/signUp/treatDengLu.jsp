@@ -24,9 +24,7 @@
         </jsp:forward>
     <%
     } else {
-        System.out.println(application.getAttribute("user"));
         UserBean user = (UserBean) application.getAttribute("user");
-        System.out.println(user.getPassword());
         if (userName.equals(String.valueOf(user.getName())) && password.equals(String.valueOf(user.getPassword()))) {
     %>
         <jsp:forward page="dengLuSuccess.jsp">

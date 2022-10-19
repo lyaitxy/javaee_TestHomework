@@ -31,14 +31,12 @@
         </jsp:forward>
     <%
         } else {
-    %>
-        <h2><%=userName%>欢迎您!</h2>
-    <%
             UserBean user = new UserBean();
             user.setName(userName);
             user.setPassword(password);
             application.setAttribute("user", user);
         }
     %>
+        <h2><%=userName%>欢迎您!</h2>
 </body>
 </html>
