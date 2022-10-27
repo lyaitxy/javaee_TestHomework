@@ -37,7 +37,7 @@ public class TreatZhuCe extends HttpServlet {
             UserBean user = new UserBean();
             user.setName(userName);
             user.setPassword(password);
-            ServletContext application = getServletContext();
+            ServletContext application = req.getServletContext();
             application.setAttribute("user", user);
             rd.forward(req, resp);
         }
